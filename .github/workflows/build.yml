@@ -42,7 +42,7 @@ jobs:
         with:
           push: true
           tags: |
-            cyrale/project-zomboid:${{ steps.version_tag.outputs.tag }}
-            ghcr.io/cyrale/project-zomboid:${{ steps.version_tag.outputs.tag }}
+            ahava/project-zomboid:${{ steps.version_tag.outputs.tag }}
+            ghcr.io/ahava/project-zomboid:${{ steps.version_tag.outputs.tag }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
