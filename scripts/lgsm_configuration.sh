@@ -38,6 +38,7 @@ fn_check_lgsm_installed
 cd "${HOME}"
 
 server_ini_file="/home/linuxgsm/Zomboid/Server/${LGSM_GAMESERVER}.ini"
+server_json_file="/home/linuxgsm/serverfiles/ProjectZomboid64.json"
 
 if [ ! -z "${LGSM_GAMESERVER_RENAME}" ]
 then
@@ -67,7 +68,12 @@ then
     sed -ri "s/^SteamPort2=([0-9]+)$/SteamPort2=${STEAM_PORT_2}/" "${server_ini_file}"
     sed -ri "s/^RCONPort=([0-9]+)$/RCONPort=${RCON_PORT}/" "${server_ini_file}"
     sed -ri "s/^RCONPassword=(.*)$/RCONPassword=${RCON_PASSWORD}/" "${server_ini_file}"
-    
+
     sed -ri "s/^Mods=(.*)$/Mods=${SERVER_MODS}/" "${server_ini_file}"
     sed -ri "s/^WorkshopItems=(.*)$/WorkshopItems=${SERVER_WORKSHOP_ITEMS}/" "${server_ini_file}"
+fi
+
+if [ -f $server_json_file ]
+then
+    sed -ri "s/-Dzomboid.steam=([0-1]+)/-Dzomboid.steam=${STEAM_ENABLED}/" "${server_json_file}"
 fi

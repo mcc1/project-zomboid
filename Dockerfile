@@ -18,7 +18,9 @@ ENV STEAM_PORT_1=8766  \
     # Server port
     SERVER_PORT=16261 \
     # Game UDP port to allow player to contact the server (by default : 10 players)
-    PLAYER_PORTS=16262-16272
+    PLAYER_PORTS=16262-16272 \
+    # Steam Enabled
+    STEAM_ENABLED=0
 
 # Switch to root to use apt-get
 USER root
